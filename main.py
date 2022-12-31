@@ -9,7 +9,8 @@ window_size = (800, 600)
 camera = Camera(0, 0)
 # Create the window
 screen = pygame.display.set_mode(window_size)
-
+# Load the map image
+map_image = pygame.image.load("./src/designs/example.png")
 # Set the window title
 pygame.display.set_caption("Super Mario Bros. Style Game")
 # Create an instance of the Character class
@@ -71,6 +72,7 @@ while True:
             character_sprite = character_sprite_right
         elif character.last_direction == "left":
             character_sprite = character_sprite_left
+    screen.blit(map_image, (0, 0))  # Draw the map image to the screen
     screen.blit(character_sprite, (character.x - camera.x, character.y - camera.y))  # Draw the character sprite
     pygame.display.flip()  # Update the window
     # Limit the frame rate to 30 FPS
